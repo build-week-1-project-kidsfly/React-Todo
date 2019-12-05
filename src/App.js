@@ -13,11 +13,19 @@ class App extends React.Component {
     }
   }
 
+  submitHandler = e => {
+    e.preventDefault();
+    this.props.addNewItem(this.state.listItem)
+    this.setState({ listItem: "" })
+  };
+
   render() {
     return (
-      <div>
-        <TodoForm/>
-      </div>
+      <form onSubmit={this.submitHandler}>
+        <input value={this.state.listItem} placeholder='...todo' type='text' onChange={this.changeHandler} />
+        <button>Add Todo</button>
+
+      </form>
     );
   }
 }
