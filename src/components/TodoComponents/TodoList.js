@@ -4,13 +4,13 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = props => {
-  const { queHacer, todoItems, toggleItem } = props;
+  const { queHacer, todoItems, toggleCosa } = props;
   const newKey = Date.now();
   return (
     <div className="shopping-list">
       {queHacer.map(item => {
         console.log(item);
-        return <Todo algoQueHacer={item} key={item.id} />
+        return <Todo algoQueHacer={item} key={item.id} toggleTask={toggleCosa} />
       })}
 
 

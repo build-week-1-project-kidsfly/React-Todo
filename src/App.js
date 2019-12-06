@@ -14,12 +14,15 @@ class App extends React.Component {
       currentList: Lista
     }
   }
+  toggleThing = taskId => {
+    console.log('toggled!!', taskId)
+  };
 
   render() {
     return (
       <div>
         <h1>Todo List</h1>
-        <TodoList queHacer={Lista}/>
+        <TodoList queHacer={Lista} toggleCosa={this.toggleThing} />
         {/*<TodoForm list={this.state.currentList.task} />*/}
       </div>
     );

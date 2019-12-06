@@ -26,17 +26,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Todo = props => {
-  const { algoQueHacer, groceryItem, toggleItem } = props;
+  const { algoQueHacer, toggleTask } = props;
   const classes = useStyles();
 
-  const clickHandler = () => {
-    toggleItem(groceryItem.id);
-  };
+  // const clickHandler = () => {
+  //   toggleItem(groceryItem.id);
+  // };
   // for erasing block ===> display={(algoQueHacer.completed === true) ? "none" : "block"}
   //it goes in the Box element.
 
   return (
-    <Box className={classes.box}  >
+    <Box className={classes.box}  onClick={() => toggleTask(algoQueHacer.id)}>
       <Typography variant="h5" className={(algoQueHacer.completed === true) ? classes.strikeThrough : classes.centeredLine}>
         {algoQueHacer.task}
       </Typography>
