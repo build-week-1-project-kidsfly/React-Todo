@@ -4,13 +4,20 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = props => {
-  const { todoItems, toggleItem } = props;
+  const { queHacer, todoItems, toggleItem } = props;
   const newKey = Date.now();
   return (
     <div className="shopping-list">
-      {todoItems.map(item => {
-        return <Todo groceryItem={item} toggleItem={toggleItem} key={newKey} />;
+      {queHacer.map(item => {
+        console.log(item);
+        return <Todo algoQueHacer={item} key={item.id} />
       })}
+
+
+
+      {/*{todoItems.map(item => {*/}
+      {/*  return <Todo groceryItem={item} toggleItem={toggleItem} key={newKey} />;*/}
+      {/*})}*/}
     </div>
   );
 };
