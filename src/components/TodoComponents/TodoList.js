@@ -9,15 +9,10 @@ const TodoList = props => {
   return (
     <div className="shopping-list">
       {queHacer.map(item => {
-        console.log(item);
+        // console.log(item);
         return <Todo algoQueHacer={item} key={item.id} toggleTask={toggleCosa} />
       })}
 
-
-
-      {/*{todoItems.map(item => {*/}
-      {/*  return <Todo groceryItem={item} toggleItem={toggleItem} key={newKey} />;*/}
-      {/*})}*/}
     </div>
   );
 };

@@ -9,19 +9,20 @@ const useStyles = makeStyles(theme => ({
     marginRight: "auto",
     marginTop: 30,
     borderRadius: 5,
-    backgroundColor: '#003300'
+    // backgroundColor: '#003300'
+    backgroundImage: "linear-gradient(#1a46cd, #14e7d5, #1a46cd)"
   },
   centeredLine: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   strikeThrough: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textDecoration: 'line-through',
-    color: '#00FF00'
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textDecoration: "line-through",
+    color: "#00FF00"
   }
 }));
 
@@ -29,15 +30,18 @@ const Todo = props => {
   const { algoQueHacer, toggleTask } = props;
   const classes = useStyles();
 
-  // const clickHandler = () => {
-  //   toggleItem(groceryItem.id);
-  // };
-  // for erasing block ===> display={(algoQueHacer.completed === true) ? "none" : "block"}
-  //it goes in the Box element.
 
   return (
-    <Box className={classes.box}  onClick={() => toggleTask(algoQueHacer.id)}>
-      <Typography variant="h5" className={(algoQueHacer.completed === true) ? classes.strikeThrough : classes.centeredLine}>
+    <Box className={classes.box} onClick={e => toggleTask(algoQueHacer.id)}>
+      <Typography
+        variant="h5"
+        className={
+          algoQueHacer.completed === true
+            ? classes.strikeThrough
+            : classes.centeredLine
+        }
+
+      >
         {algoQueHacer.task}
       </Typography>
     </Box>

@@ -1,8 +1,7 @@
-import React from 'react';
+import React from "react";
 // import TodoForm from "./components/TodoComponents/TodoForm";
-import { Lista } from './components/TodoComponents/Data'
+import { Lista } from "./components/TodoComponents/Data";
 import TodoList from "./components/TodoComponents/TodoList";
-
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -12,10 +11,18 @@ class App extends React.Component {
     super();
     this.state = {
       currentList: Lista
-    }
+    };
   }
   toggleThing = taskId => {
-    console.log('toggled!!', taskId)
+    console.log('toggled!!', taskId);
+    this.setState({
+      currentList: this.state.currentList.map(item => {
+        if (taskId === item.id) {
+          return { ...item, completed: item.completed };
+        }
+        return item;
+      })
+    });
   };
 
   render() {
